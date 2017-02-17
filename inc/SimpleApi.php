@@ -3,14 +3,22 @@
   include 'inc/connector.php';
 
   class SimpleApi {
-    //public $db;
-
     function __construct() {
       global $_API;
       session_start();
 
-      //$db = DB::$mysql;
       $this->load_modules($_API['directory']);
+    }
+
+    public function request($fields, $assoc = true) {
+        global $_API;
+        $curl = curl_init($_API{'uri'});
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($fields));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($curl);
+        curl_close($curl);
+        return json_decode($response, $assoc);
     }
 
     public function load_modules($dir) { //load the modules in the api directory

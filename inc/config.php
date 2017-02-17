@@ -5,6 +5,7 @@
 
   //api configuration
   $_API{'directory'} = './api';
+  $_API{'uri'} = 'http://localhost/GitHub/SimpleApi/api.php';
   global $_API;
 
   //database configuration

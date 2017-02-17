@@ -3,7 +3,7 @@
   function multiplier($data) { //data array it's the array containing the callback parameters
     $string = '';
 
-    for($i = 0; $i <$data['times']; $i++) {
+    for($i = 0; $i < $data['times']; $i++) {
       $string .= $data['word'];
     }
 

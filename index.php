@@ -3,7 +3,9 @@
   <head>
     <script src="./js/SimpleApi.js"></script>
     <script>
+      //JAVASCRIPT REMOTE USAGE
       var api = new SimpleApi();
+
       api.request({
         'callback': 'multiplier',
         'data[word]': 'hello',
@@ -14,17 +16,29 @@
     </script>
   </head>
   <body>
-    <?php
-      include 'inc/SimpleApi.php';
+    <pre>
+      <?php
+        include 'inc/SimpleApi.php';
 
 
-      $api = new SimpleApi();
-      $result = $api->multiplier(array(
-        'word' => 'hello',
-        'times' => 5
-      ));
+        $api = new SimpleApi();
 
-      print_r($result);
-    ?>
+
+        //LOCAL USAGE
+        $result = $api->multiplier(array(
+          'word' => 'hello',
+          'times' => 5
+        ));
+
+        print_r($result);
+
+        //REMOTE USAGE
+        print_r($api->request(array(
+            'callback' => 'multiplier',
+            'data[word]' => 'hello',
+            'data[times]' => 5
+        )));
+      ?>
+    </pre>
   </body>
 </html>

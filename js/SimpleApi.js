@@ -8,7 +8,7 @@ class SimpleApi {
 
     //var json = JSON.stringify(params);
     var json = this.urlEncodeObject(params);
-    
+
     var xhr = new XMLHttpRequest();
 
     xhr.open("POST", this.api_uri, true);
