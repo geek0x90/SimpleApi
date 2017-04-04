@@ -6,6 +6,6 @@
     public static $mysql;
   }
 
-  DB::$mysql = new mysqli($_MYSQL{'hostname'}, $_MYSQL{'username'}, $_MYSQL{'password'}, $_MYSQL{'database'});
+  DB::$mysql = $_MYSQL{'enabled'} ? new mysqli($_MYSQL{'hostname'}, $_MYSQL{'username'}, $_MYSQL{'password'}, $_MYSQL{'database'}) : null;
   global $_DB;
 ?>

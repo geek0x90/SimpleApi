@@ -9,6 +9,7 @@
   global $_API;
 
   //database configuration
+  $_MYSQL{'enabled'} = false;
   $_MYSQL{'hostname'} = 'localhost';
   $_MYSQL{'username'} = 'root';
   $_MYSQL{'password'} = '';
