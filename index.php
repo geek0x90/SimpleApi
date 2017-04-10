@@ -1,12 +1,12 @@
 <!doctyle html>
 <html>
   <head>
-    <script src="./js/SimpleApi.js"></script>
+    <script src="./js/Api.js"></script>
     <script>
       //JAVASCRIPT REMOTE USAGE
-      var api = new SimpleApi();
+      Api.init('api.php');
 
-      api.request({
+      Api.request({
         'callback': 'multiplier',
         'data[word]': 'hello',
         'data[times]': 5
@@ -18,14 +18,10 @@
   <body>
     <pre>
       <?php
-        include 'inc/SimpleApi.php';
-
-
-        $api = new SimpleApi();
-
+        include 'inc/Api.php';
 
         //LOCAL USAGE
-        $result = $api->multiplier(array(
+        $result = Api::multiplier(array(
           'word' => 'hello',
           'times' => 5
         ));
@@ -33,7 +29,7 @@
         print_r($result);
 
         //REMOTE USAGE
-        print_r($api->request(array(
+        print_r(Api::request(array(
             'callback' => 'multiplier',
             'data[word]' => 'hello',
             'data[times]' => 5

@@ -1,5 +1,5 @@
 <?php
-  //http://localhost/GitHub/SimpleApi/api.php?callback=multiplier&data[times]=5&data[word]=hello
+  //http://localhost/github/api/api.php?callback=multiplier&data[times]=5&data[word]=hello
   function multiplier($data) { //data array it's the array containing the callback parameters
     $string = '';
 

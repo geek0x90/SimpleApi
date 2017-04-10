@@ -1,5 +1,5 @@
-# SimpleApi
-Simple API it's a simple and dynamic PHP API with Js/Php Wrapper.
+# Api
+API it's a simple and dynamic PHP API with Js/Php Wrapper.
 
 # Usage
 1. Update the config file for mysql connections
@@ -19,33 +19,30 @@ Simple API it's a simple and dynamic PHP API with Js/Php Wrapper.
     ```
 3. Use your callback:
   * from the endpoint: http://host/api.php?callback=multiplier&data[times]=5&data[word]=hello
-  * from the local php environment 
+  * from the local php environment
       ```
-        include 'inc/SimpleApi.php';
-        $api = new SimpleApi();
-        $result = $api->multiplier(array(
+        include 'inc/Api.php';
+        $result = Api::multiplier(array(
           'word' => 'hello',
           'times' => 5
         ));
 
       ```
-   * from remote php environment 
+   * from remote php environment
       ```
-        include 'inc/SimpleApi.php';
-        $api = new SimpleApi();
-        $api->request(array(
+        include 'inc/Api.php';
+        Api::request(array(
             'callback' => 'multiplier',
             'data[word]' => 'hello',
             'data[times]' => 5
         ));
 
       ```
-    * from js environment 
+    * from js environment
       ```
-        <script src="./js/SimpleApi.js"></script>
+        <script src="./js/Api.js"></script>
         <script>
-          var api = new SimpleApi();
-          api.request({
+          Api.request({
             'callback': 'multiplier',
             'data[word]': 'hello',
             'data[times]': 5

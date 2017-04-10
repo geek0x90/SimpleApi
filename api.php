@@ -1,8 +1,7 @@
 <?php
-  include 'inc/SimpleApi.php';
+  include 'inc/Api.php';
 
-  $api = new SimpleApi();
-  $result = $api->core(); //call the core, listen for $_REQUEST to process the remote api
+  $result = Api::core(); //call the core, listen for $_REQUEST to process the remote api
 
   echo json_encode($result);
 ?>

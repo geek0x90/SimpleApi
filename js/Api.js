@@ -1,13 +1,17 @@
-class SimpleApi {
+class Api {
   constructor(api_uri) {
-    this.api_uri = api_uri || 'api.php';
+    init(api_uri);
   }
 
-  request(params, callback, method) { //request via post or get the api data
+  static init(api_uri) {
+    Api.api_uri = api_uri || 'api.php';
+  }
+
+  static request(params, callback, method) { //request via post or get the api data
     method = method || "post"; //default method is post
 
     //var json = JSON.stringify(params);
-    var json = this.urlEncodeObject(params);
+    var json = Api.urlEncodeObject(params);
 
     var xhr = new XMLHttpRequest();
 
@@ -23,7 +27,7 @@ class SimpleApi {
     xhr.send(json);
   }
 
-  urlEncodeObject(data) {
+  static urlEncodeObject(data) {
     const params = Object.keys(data).map(key => data[key] ? `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}` : '');
     return params.filter(value => !!value).join('&');
   }
